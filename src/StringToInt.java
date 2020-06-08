@@ -1,14 +1,22 @@
 public class StringToInt{
 
-    // public static int stringToInt(String str) {
-    //     if(str != "") return -1;
+    public static int stringToInt(String str) {
+       char[] chars = str.toCharArray();
+       
+        int answer = 0;
+       int multiplier=1;
 
-    //     String string = "";
-    //     char[] charArray = string.toCharArray();
-    //     int value = 0;
-    //     for (int i = 0; i < charArray.length; i++) {
-    //         value = value * 10 + Character.toDigit(charArray[i]);
-    //     }
-    // }
-    // return value;
+       for (int i = chars.length - 1; i >=0; i--) {
+           answer += (chars[i] - '0') * multiplier;
+           multiplier *= 10;
+       }
+       return answer;
+    }
+
+    public static void main(String[] args) {
+        String p = "123";
+
+        int res = stringToInt(p);
+        System.out.println(res);
+    }
 }

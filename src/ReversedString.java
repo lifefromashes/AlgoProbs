@@ -7,13 +7,13 @@ public class ReversedString {
 		return sb.toString();
 	}
 	
-	public static void reverseString2(String str) {
-		char[] ch = str.toCharArray();
-		for(int i = ch.length - 1; i >= 0; i--) {
-			System.out.print(ch[i]);
+	public static String reverseString2(String str) {
+		char [] ch = str.toCharArray();
+		for(int i = ch.length - 1; i >=0; i--) {
+			System.out.println(ch[i]);
 		}
-		//return ch.toString();
-	}
+		return ch.toString();
+}
 	
 	public static void main(String[] args) {
 		String str = "hello";
@@ -22,8 +22,8 @@ public class ReversedString {
 		System.out.println(res);
 		
 		String str2 = "java";
+		System.out.println(reverseString(str2));
 		
-		System.out.println(str2);
 	}
 	
 	
