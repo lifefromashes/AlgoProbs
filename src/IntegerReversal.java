@@ -11,7 +11,11 @@ public class IntegerReversal {
 		}
 		
 		return reverse;
-			
+			//1234 % 10 = 4
+			//0 * 10 + 4 = 4;
+			//1234/10 = 123
+			//123 % 10 = 3
+			//etc
 		
 	}
 		

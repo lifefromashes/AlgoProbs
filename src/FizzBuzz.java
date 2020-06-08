@@ -1,6 +1,6 @@
 
 public class FizzBuzz {
-	
+	//start at one ; question says for numbers 1 - n.
 	public static int fizzBuzz(int n) {
 		for(int i = 1; i <= n; i++) {
 			if (i % 3 == 0 && i % 5 == 0) {
