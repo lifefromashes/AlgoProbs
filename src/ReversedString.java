@@ -10,6 +10,7 @@ public class ReversedString {
 	public static String reverseString2(String str) {
 		char [] ch = str.toCharArray();
 		for(int i = ch.length - 1; i >=0; i--) {
+			//String reverse = str.charAt(i);
 			System.out.println(ch[i]);
 		}
 		return ch.toString();
