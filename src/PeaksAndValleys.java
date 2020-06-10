@@ -9,15 +9,13 @@ public class PeaksAndValleys {
         List<Integer> valleyList = new ArrayList<>();
 
 
-        for (int i = 0; i < arr.length - 1 ; i++) {
-            if(arr[i] > arr[i + 1]) {
-                //peakCount = arr[i];
-                peakList.add(arr[i]);
+        for (int i = 0; i < arr.length - 2 ; i++) {
+            if(arr[i] < arr[i + 1] && arr[i + 2] < arr[i + 1]) {
+                peakList.add(arr[i + 1]);
 
             } 
-            if (arr[i] < arr[i + 1]) {
-                //valleyCount = arr[i];
-                valleyList.add(arr[i]);
+            if (arr[i] > arr[i + 1] && arr[i + 2] > arr[i + 1]) {
+                valleyList.add(arr[i + 1]);
             }
         }
             
