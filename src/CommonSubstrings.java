@@ -30,16 +30,13 @@ public class CommonSubstrings {
         for (String s : arr2) {
             if(set.contains(s)) {
                 System.out.println("Yes");
-            }
+            } 
         }
         System.out.println("No");
+
     }
 
     
-
-
-    
-
     public static void main(String[] args) {
         // String s1 = "hello ";
         // String s2 = "world";    

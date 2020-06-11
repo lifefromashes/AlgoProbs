@@ -3,12 +3,14 @@ public class Sum2dArray {
     public static int sumIntsIn2DArray(int[][] arr, int xStart, int yStart, int xEnd, int yEnd) {
         int sum = 0;
 
-        for (int x = xStart; x < xEnd -1; x++) {
-            for (int y = yStart; y < yEnd -1; y++) {
+        for (int x = xStart; x < xEnd - 1; x++) {
+            for (int y = yStart; y < yEnd - 1; y++) {
                 sum += arr[x][y];
             }
         }
         return sum;
+
+        
     }
     public static void main(String[] args) {
         int xStart = 1;
