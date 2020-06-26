@@ -17,14 +17,17 @@ public class Array {
             //copy existing into new array
             for(int i = 0; i < count; i++) {
                 newItems[i] = items[i];
+            }
             
             //set items to this new array
                 items = newItems;
-            }
+            
         }
+        
         //add new item at end of curr array
-        items[count] = item;
-        count++; //moved to inline
+        items[count++] = item;
+        //count++; //moved to inline
+        
     }
 
     public void removeAt(int index) {
@@ -68,7 +71,7 @@ public class Array {
         nums.insert(10);
         nums.insert(40);
         nums.insert(50);
-        nums.removeAt(2);
+        nums.insert(60);
         //System.out.println(nums.indexOf(40));
        // nums.removeAt(0);
 
