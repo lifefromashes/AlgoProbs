@@ -1,8 +1,10 @@
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class LinkedList {
     private Node first;
     private Node last;
+    private int size;
 
     //addFirst
     //addLast
@@ -23,6 +25,7 @@ public class LinkedList {
             last.next = node;
             last = node;
         }
+        size++;
     
     }
 
@@ -39,6 +42,7 @@ public class LinkedList {
             node.next = first;
             first = node;
         }
+        size++;
     }
 
     public int indexOf(int item) {
@@ -56,25 +60,30 @@ public class LinkedList {
         if(isEmpty()) throw new
             NoSuchElementException();
         
-        if(first == last) {
+        if(first == last) 
             first = last = null;
-            return;
-        }
+        
+        else {        
         var second = first.next;
         first.next = null;
         first = second;
+        }
+
+        size--;
     }
 
     public void removeLast() {
         if(isEmpty()) throw new NoSuchElementException();
 
-        if(first == last) {
+        if(first == last) 
             first = last = null;
-            return;
-        }
+        else{
         var previous = getPrevious(last);
         last = previous;
         last.next = null;
+        }
+
+        size--;
         
     }
 
@@ -86,6 +95,24 @@ public class LinkedList {
             current = current.next;
         }
         return null;
+    }
+
+    //O(1)
+    public int size() {
+        return size;
+    }
+
+    public int[] toArray() {
+        int[] array = new int[size];
+        var current = first;
+        var index = 0;
+
+        while(current != null) {
+            array[index++] = current.value;
+            current = current.next;
+        }
+
+        return array;
     }
 
     private boolean isEmpty() {
@@ -106,15 +133,83 @@ public class LinkedList {
 
     }
 
+    public void reverse() {
+        //[10 -> 20 ->30]
+        //        p     c   n  (first iteration)
+        //(p)revious and (c)urrent node vars
+        //declare another var called next n = c.next;
+        //c.next = p
+        if(isEmpty()) return;
+
+        var previous = first;
+        var current = first.next;
+        while(current!= null) {
+            var next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+
+        last = first;
+        last.next = null;
+        first = previous;
+        
+    }
+
+    private int getKthFromTheEnd(int k) {
+        //find kth node from end of linked list in one pass
+        //[10 -> 20 -> 30 -> 40 -> 50]
+        //k = 3 (50) distance of pointers = 2
+        //k - 1 node apart
+
+        //linked list questions can be solved with
+        //two pointers
+        if(isEmpty()) throw new IllegalStateException();
+        
+        var a = first;
+        var b = first;
+        for(int i = 0; i < k -1; i++) {
+            b = b.next; //moves 2nd pointer forward
+            if(b == null) throw new IllegalArgumentException();
+            while(b != last) {
+                a = a.next;
+                b = b.next;
+            }
+        }
+        return a.value;
+
+    }
+
     
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
+        System.out.println(list.size);
         list.addLast(10);
         list.addLast(20);
         list.addLast(30);
-        list.removeLast();
-        System.out.println(list.indexOf(10));
-        System.out.println(list.contains(40));
+        list.addLast(40);
+        list.addLast(50);
+        System.out.println(list.getKthFromTheEnd(3));
+        
+        // System.out.println(list.size);
+
+        // list.addLast(30);
+        // list.removeLast();
+        // list.addFirst(50);
+        // list.reverse();
+        // System.out.println(list.size);
+        // System.out.println(list.indexOf(10));
+        // System.out.println(list.contains(40));
+
+        // var array = list.toArray();
+        // System.out.println(Arrays.toString(array));
+
+        
+
+
+
+
+
         
 
 
