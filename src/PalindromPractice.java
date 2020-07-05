@@ -12,7 +12,10 @@ public class PalindromPractice {
         return true;
     }
 
+   
+
     public static void main(String[] args) {
+        
         String str = "racecar";
 
         String str2 = "orange";
