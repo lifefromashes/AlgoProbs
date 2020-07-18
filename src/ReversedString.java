@@ -15,6 +15,18 @@ public class ReversedString {
 		}
 		return ch.toString();
 }
+
+public static String revString(String str) {
+	String[] words = str.split(" ");
+	StringBuffer reversed = new StringBuffer();
+	for(int i = words.length - 1; i >= 0; i--) {
+		reversed.append(words[i] + " ");
+	}
+	return reversed.toString();
+
+}
+
+
 	
 	public static void main(String[] args) {
 		String str = "hello";
