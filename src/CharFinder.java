@@ -21,4 +21,21 @@ public class CharFinder {
         }
     return Character.MIN_VALUE;
     }
+
+    public char findFirstNonRepeatChar(String str) {
+        Map<Character, Integer> map = new HashMap<>();
+        var chars = str.toCharArray();
+
+        for (char ch : chars) {
+            if(map.containsKey(ch)){
+                int count = map.get(ch);
+                map.put(ch, count);
+            }
+            else {
+                map.put(ch, 1);
+            }
+        }
+
+        return Character.MIN_VALUE;
+    }
 }
